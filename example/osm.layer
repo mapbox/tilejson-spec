@@ -1,0 +1,16 @@
+{
+    "name": "OpenStreetMap",
+    "description": "A free editable map of the whole world.",
+    "attributions": [
+        {"text": "(c) OpenStreetMap contributors, CC-BY-SA", "url": "http://openstreetmap.org"}
+    ],
+    "scheme": "xyz",
+    "tiles": [
+        "http://a.tile.openstreetmap.org/${z}/${x}/${y}.png",
+        "http://b.tile.openstreetmap.org/${z}/${x}/${y}.png",
+        "http://c.tile.openstreetmap.org/${z}/${x}/${y}.png"
+    ],
+    "minzoom": 0,
+    "maxzoom": 18,
+    "bounds": [ -180, -85, 180, 85 ]
+}
