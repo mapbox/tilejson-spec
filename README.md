@@ -54,24 +54,24 @@ Implementations MUST treat unknown keys as if they weren't present. However, imp
     // The global-mercator (aka Spherical Mercator) profile is assumed.
     "scheme": "xyz",
 
-    // REQUIRED. An array of tile endpoints. %z, %x and %y are replaced with
+    // REQUIRED. An array of tile endpoints. ${z}, ${x} and ${y} are replaced with
     // the corresponding integers. If multiple endpoints are specified, clients
     // may use any combination of endpoints. All endpoints MUST return the same
     // content for the same URL. The array MUST contain at least one endpoint.
     "tiles": [
-        "http://localhost:8888/admin/1.0.0/world-light,broadband/%z/%x/%y.png"
+        "http://localhost:8888/admin/1.0.0/world-light,broadband/${z}/${x}/${y}.png"
     ],
 
-    // OPTIONAL. Default: []. An array of interactivity endpoints. %z, %x and %y
-    // are replaced with the corresponding integers. If multiple endpoints are
-    // specified, clients may use any combination of endpoints. All endpoints
-    // MUST return the same content for the same URL.
+    // OPTIONAL. Default: []. An array of interactivity endpoints. ${z}, ${x}
+    // and ${y} are replaced with the corresponding integers. If multiple
+    // endpoints are specified, clients may use any combination of endpoints.
+    // All endpoints MUST return the same content for the same URL.
     // If the array doesn't contain any entries, interactivity is not supported
     // for this tileset.
     // See https://github.com/mapbox/mbtiles-spec/blob/master/2.0/interaction.md
     // for the interactivity specification.
     "interactivity": [
-        "http://localhost:8888/admin/1.0.0/broadband/%z/%x/%y.grid.json"
+        "http://localhost:8888/admin/1.0.0/broadband/${z}/${x}/${y}.grid.json"
     ],
 
     // REQUIRED. >= 0, <= 22. An integer specifying the minimum zoom level.
