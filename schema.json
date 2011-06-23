@@ -1,0 +1,66 @@
+{
+    "name": "TileJSON",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "version": {
+            "type": "string",
+            "pattern": "\\d+\\.\\d+\\.\\d+\\w?[\\w\\d]*"
+        },
+        "description": {
+            "type": "string"
+        },
+        "attributions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "required": true,
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "scheme": {
+            "type": "string"
+        },
+        "tiles": {
+            "type": "array",
+            "required": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "minzoom": {
+            "required": true,
+            "minimum": 0,
+            "maximum": 22,
+            "type": "integer"
+        },
+        "maxzoom": {
+            "required": true,
+            "minimum": 0,
+            "maximum": 22,
+            "type": "integer"
+        },
+        "bounds": {
+            "required": true,
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "center": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        }
+    }
+}

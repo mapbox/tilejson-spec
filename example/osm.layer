@@ -1,6 +1,7 @@
 {
     "name": "OpenStreetMap",
     "description": "A free editable map of the whole world.",
+    "version": "1.0.0",
     "attributions": [
         {"text": "(c) OpenStreetMap contributors, CC-BY-SA", "url": "http://openstreetmap.org"}
     ],
