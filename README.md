@@ -70,7 +70,7 @@ Implementations MUST treat unknown keys as if they weren't present. However, imp
     // for this tileset.
     // See https://github.com/mapbox/mbtiles-spec/blob/master/2.0/interaction.md
     // for the interactivity specification.
-    "interactivity": [
+    "grids": [
         "http://localhost:8888/admin/1.0.0/broadband/${z}/${x}/${y}.grid.json"
     ],
 
