@@ -89,7 +89,7 @@ Implementations MUST treat unknown keys as if they weren't present. However, imp
     "bounds": [ -180, -85.05112877980659, 180, 85.0511287798066 ],
 
     // OPTIONAL. Default: null.
-    // The first value is the longitude, the second is longtitude (both in
+    // The first value is the longitude, the second is latitude (both in
     // WGS:84 values), the third value is the zoom level as an integer.
     // Longitude and latitude MUST be within the specified bounds.
     // The zoom level MUST be between minzoom and maxzoom.
