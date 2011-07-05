@@ -43,6 +43,12 @@ Implementations MUST treat unknown keys as if they weren't present. However, imp
         {"text": "OSM contributors", "url": "http://openstreetmap.org"}
     ],
 
+    // OPTIONAL. Default: null. Contains a javascript function to be used to
+    // format data from grids for interaction.
+    // See https://github.com/mapbox/mbtiles-spec/blob/master/1.1/interaction.md
+    // for the interactivity specification.
+    "formatter": "function(options, data) { return data.NAME; }",
+
     // OPTIONAL. Default: null. Contains a legend to be displayed with the map.
     // Implementations MAY decide to treat this as HTML or literal text.
     // For security reasons, make absolutely sure that this field can't be
@@ -68,7 +74,7 @@ Implementations MUST treat unknown keys as if they weren't present. However, imp
     // All endpoints MUST return the same content for the same URL.
     // If the array doesn't contain any entries, interactivity is not supported
     // for this tileset.
-    // See https://github.com/mapbox/mbtiles-spec/blob/master/2.0/interaction.md
+    // See https://github.com/mapbox/mbtiles-spec/blob/master/1.1/interaction.md
     // for the interactivity specification.
     "grids": [
         "http://localhost:8888/admin/1.0.0/broadband/{z}/{x}/{y}.grid.json"
