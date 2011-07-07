@@ -34,14 +34,11 @@ Implementations MUST treat unknown keys as if they weren't present. However, imp
     // Implementations MUST NOT use tiles with different major versions.
     "version": "1.0.0"
 
-    // OPTIONAL: Default: []. Contains a list of attributions to be displayed
-    // when the map is shown to a user.
-    "attributions": [
-        // `text` is REQUIRED. Contains a markup-free name or attribution.
-        // `url` is OPTIONAL. Default: null. Contains a URI to the attributee.
-        {"text": "(c) 2011 by ACME Inc.", "url": "http://acme.com"},
-        {"text": "OSM contributors", "url": "http://openstreetmap.org"}
-    ],
+    // OPTIONAL. Default: null. Contains an attribution to be displayed
+    // when the map is shown to a user. Implementations MAY decide to treat this
+    // as HTML or literal text. For security reasons, make absolutely sure that
+    // this field can't be abused as a vector for XSS or beacon tracking.
+    "attribution": "<a href='http://openstreetmap.org'>OSM contributors</a>",
 
     // OPTIONAL. Default: null. Contains a javascript function to be used to
     // format data from grids for interaction.
