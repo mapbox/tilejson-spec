@@ -1,10 +1,9 @@
 {
+    "tilejson": "1.0.0",
     "name": "OpenStreetMap",
     "description": "A free editable map of the whole world.",
     "version": "1.0.0",
-    "attributions": [
-        {"text": "(c) OpenStreetMap contributors, CC-BY-SA", "url": "http://openstreetmap.org"}
-    ],
+    "attribution": "(c) OpenStreetMap contributors, CC-BY-SA",
     "scheme": "xyz",
     "tiles": [
         "http://a.tile.openstreetmap.org/${z}/${x}/${y}.png",
