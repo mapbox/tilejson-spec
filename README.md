@@ -15,6 +15,10 @@ Implementations MUST treat unknown keys as if they weren't present. However, imp
 
 ```javascript
 {
+    // REQUIRED. A semver.org style version number. Describes the version of
+    // the TileJSON spec that is implemented by this JSON object.
+    "tilejson": "1.0.0",
+
     // OPTIONAL. Default: null. A name describing the tileset. The name can
     // contain any legal character. Implementations SHOULD NOT interpret the
     // name as HTML.
@@ -32,7 +36,7 @@ Implementations MUST treat unknown keys as if they weren't present. However, imp
     // level MUST only have changes to tiles that are contained within one tile.
     // When tiles change significantly, the major version MUST be increased.
     // Implementations MUST NOT use tiles with different major versions.
-    "version": "1.0.0"
+    "version": "1.0.0",
 
     // OPTIONAL. Default: null. Contains an attribution to be displayed
     // when the map is shown to a user. Implementations MAY decide to treat this
