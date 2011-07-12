@@ -81,17 +81,18 @@ Implementations MUST treat unknown keys as if they weren't present. However, imp
         "http://localhost:8888/admin/1.0.0/broadband/{z}/{x}/{y}.grid.json"
     ],
 
-    // REQUIRED. >= 0, <= 22. An integer specifying the minimum zoom level.
+    // OPTIONAL. Default: 0. >= 0, <= 22.
+    // An integer specifying the minimum zoom level.
     "minzoom": 0,
 
-    // REQUIRED. >= 0, <= 22. An integer specifying the maximum zoom level.
-    // MUST be >= minzoom
+    // OPTIONAL. Default: 22. >= 0, <= 22.
+    // An integer specifying the maximum zoom level. MUST be >= minzoom.
     "maxzoom": 11,
 
-    // REQUIRED. The maximum extent of available map tiles. Bounds MUST define
-    // an area covered by all zoom levels. The bounds are represented in WGS:84
+    // OPTIONAL. Default: [-180, -90, 180, 90].
+    // The maximum extent of available map tiles. Bounds MUST define an area
+    // covered by all zoom levels. The bounds are represented in WGS:84
     // latitude and longitude values, in the order left, bottom, right, top.
-    // Example of the full earth: -180, -85, 180, 85.
     // Values may be integers or floating point numbers.
     "bounds": [ -180, -85.05112877980659, 180, 85.0511287798066 ],
 
