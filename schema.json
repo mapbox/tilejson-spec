@@ -43,19 +43,16 @@
             }
         },
         "minzoom": {
-            "required": true,
             "minimum": 0,
             "maximum": 22,
             "type": "integer"
         },
         "maxzoom": {
-            "required": true,
             "minimum": 0,
             "maximum": 22,
             "type": "integer"
         },
         "bounds": {
-            "required": true,
             "type": "array",
             "items": {
                 "type": "number"
