@@ -11,5 +11,6 @@ there are no royalties, restrictions, or requirements.
 
 ## Authors
 
+* Konstantin Käfer
 * Young Hahn
 * Tom MacWright
