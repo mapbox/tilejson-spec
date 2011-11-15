@@ -26,7 +26,7 @@ as invalid and refuse operation.
 {
     // REQUIRED. A semver.org style version number. Describes the version of
     // the TileJSON spec that is implemented by this JSON object.
-    "tilejson": "1.0.0",
+    "tilejson": "2.0.0",
 
     // OPTIONAL. Default: null. A name describing the tileset. The name can
     // contain any legal character. Implementations SHOULD NOT interpret the
@@ -57,7 +57,7 @@ as invalid and refuse operation.
     // format data from grids for interaction.
     // See https://github.com/mapbox/utfgrid-spec/tree/master/1.2
     // for the interactivity specification.
-    "template": "function(options, data) { return data.NAME; }",
+    "template": "{{#__teaser__}}{{NAME}}{{/__teaser__}}",
 
     // OPTIONAL. Default: null. Contains a legend to be displayed with the map.
     // Implementations MAY decide to treat this as HTML or literal text.
