@@ -52,7 +52,31 @@
             "maximum": 22,
             "type": "integer"
         },
+        "crs": {
+            "type": "string"
+        },
+        "projection": {
+            "type": "string"
+        },
+        "transform": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
         "bounds": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "projected_bounds": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "scales": {
             "type": "array",
             "items": {
                 "type": "number"
