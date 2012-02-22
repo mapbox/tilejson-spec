@@ -98,12 +98,43 @@ as invalid and refuse operation.
     // An integer specifying the maximum zoom level. MUST be >= minzoom.
     "maxzoom": 11,
 
+    // OPTIONAL. Default: "EPSG:3785"
+    // CRS Name.
+    "crs": "EPSG:25833",
+
+    // OPTIONAL. Default: "+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +a=6378137 +b=6378137 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
+    // A Proj4 definition for the projection used. Defaults to global-mercator
+    // (aka Spherical Mercator).
+    "projection": "+proj=utm +zone=33 +ellps=GRS80 +units=m +no_defs",
+
+    // OPTIONAL. Default: [0.5 / Math.PI, 0.5, -0.5 / Math.PI, 0.5]
+    // A transformation matrix [a, b, c, d] to calculate tile coordinate 
+    // from projected coordinates at a given scale, such that:
+    // tile_column = scale * (a * projected_x + b)
+    // tile_row = scale * (c * projected_y + d)
+    "transform": [1, 2500000, -1, 9045984],
+
     // OPTIONAL. Default: [-180, -90, 180, 90].
     // The maximum extent of available map tiles. Bounds MUST define an area
     // covered by all zoom levels. The bounds are represented in WGS:84
     // latitude and longitude values, in the order left, bottom, right, top.
     // Values may be integers or floating point numbers.
     "bounds": [ -180, -85.05112877980659, 180, 85.0511287798066 ],
+
+    // OPTIONAL. Default: null
+    // The maximum extent of available map tiles. Bounds MUST define an area
+    // covered by all zoom levels. The bounds are represented in the projected
+    // CRS. If specified, this overrides the bounds set by the "bounds" property.
+    // For many projections, specifying the bounds in WGS:84 does not make
+    // sense, and in that case, projected_bounds can be used instead.
+    "projected_bounds": [2500000, 0, 5000000, 9045984],
+
+    // OPTIONAL. Default: [256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 
+    // 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 
+    // 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824]
+    // The scale values for the defined zoom levels 0 <= z <= maxzoom.
+    "scales": [0.0001220703125, 0.000244140625, 0.00048828125, 0.0009765625, 
+    0.001953125, 0.00390625, 0.0078125, 0.015625, 0.03125, 0.0625, 0.125, 0.25, 0.5, 1.0, 2.0],
 
     // OPTIONAL. Default: null.
     // The first value is the longitude, the second is latitude (both in
