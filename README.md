@@ -9,6 +9,8 @@ The text of this specification is licensed under a
 However, the use of this spec in products and code is entirely free:
 there are no royalties, restrictions, or requirements.
 
+## [Implementations](https://github.com/mapbox/tilejson-spec/wiki/Implementations)
+
 ## Authors
 
 * Konstantin Käfer
