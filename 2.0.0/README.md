@@ -84,7 +84,7 @@ as invalid and refuse operation.
     // All endpoints MUST return the same content for the same URL.
     // If the array doesn't contain any entries, interactivity is not supported
     // for this tileset.
-    // See https://github.com/mapbox/mbtiles-spec/blob/master/1.1/interaction.md
+    // See https://github.com/mapbox/utfgrid-spec/tree/master/1.2
     // for the interactivity specification.
     "grids": [
         "http://localhost:8888/admin/1.0.0/broadband/{z}/{x}/{y}.grid.json"
