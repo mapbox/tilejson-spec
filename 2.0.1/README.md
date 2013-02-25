@@ -26,7 +26,7 @@ as invalid and refuse operation.
 {
     // REQUIRED. A semver.org style version number. Describes the version of
     // the TileJSON spec that is implemented by this JSON object.
-    "tilejson": "2.0.0",
+    "tilejson": "2.0.1",
 
     // OPTIONAL. Default: null. A name describing the tileset. The name can
     // contain any legal character. Implementations SHOULD NOT interpret the
