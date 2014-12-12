@@ -4,7 +4,6 @@
     "properties": {
         "tilejson": {
             "type": "string",
-            "required": true,
             "pattern": "\\d+\\.\\d+\\.\\d+\\w?[\\w\\d]*"
         },
         "name": {
@@ -31,7 +30,6 @@
         },
         "tiles": {
             "type": "array",
-            "required": true,
             "items": {
                 "type": "string"
             }
@@ -70,5 +68,6 @@
                 "type": "number"
             }
         }
-    }
+    },
+    "required": ["tilejson", "tiles"]
 }
