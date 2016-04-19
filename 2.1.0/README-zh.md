@@ -1,11 +1,3 @@
----
-title: TileJSON技术规范
-date: 2016-04-18 13:18:29
-tags:
----
-
-以下是[《TileJSON Specification》](https://github.com/mapbox/tilejson-spec/tree/master/2.1.0)最新的2.1.0版的中文翻译，以便查阅。
-
 # TileJSON 2.1.0
 
 本文档中的“**必须**”、“**必须不**”、“**必备**”、"**应该**"、“**不应该**”、“**建议**”、“**可以**”、“**可选**”的含义参照[RFC 2119](https://www.ietf.org/rfc/rfc2119.txt)。
