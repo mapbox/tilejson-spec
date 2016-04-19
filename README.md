@@ -16,3 +16,7 @@ there are no royalties, restrictions, or requirements.
 * Konstantin Käfer
 * Young Hahn
 * Tom MacWright
+
+## Translations
+[简体中文](https://github.com/jingsam/tilejson-spec/blob/master/2.1.0/README-zh.md)
+
