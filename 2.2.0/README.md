@@ -1,4 +1,4 @@
-# TileJSON 2.1.0
+# TileJSON 2.2.0
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in
