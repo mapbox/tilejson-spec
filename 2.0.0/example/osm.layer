@@ -6,9 +6,9 @@
     "attribution": "(c) OpenStreetMap contributors, CC-BY-SA",
     "scheme": "xyz",
     "tiles": [
-        "http://a.tile.openstreetmap.org/${z}/${x}/${y}.png",
-        "http://b.tile.openstreetmap.org/${z}/${x}/${y}.png",
-        "http://c.tile.openstreetmap.org/${z}/${x}/${y}.png"
+        "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
     ],
     "minzoom": 0,
     "maxzoom": 18,
