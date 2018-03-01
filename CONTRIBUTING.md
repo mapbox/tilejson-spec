@@ -1,16 +1,16 @@
 # Open Standard
 
-The TileJSON specification is an open standard maintained by Mapbox.
+The TileJSON specification is an open standard maintained by [Mapbox](https://www.mapbox.com/about/open/).
 
 ### Questions and Contributing
 
-All specification development happens at https://github.com/mapbox/tilejson-spec. For general questions relating to the specification please feel free to create a new issue.
+All specification development happens at https://github.com/mapbox/tilejson-spec. For general questions relating to the specification please feel free to create a new [issue](https://github.com/mapbox/tilejson-spec/issues).
 
 ### Proposing Changes
 
 - Editorial changes that clarify the specification are encouraged. Edits can be submitted as a pull request against the `master` branch of the latest version of the specification. Review and discussion of the proposed changes will take place on this pull request. Changes may warrant a bump in the `minor` version of the specification.
 
-- Technical changes to the specification are an important part of the evolution of the standard. Technical changes imply new requirements for tools that create and/or read the format. Therefore a technical change requires the `major` version to be incremented and will be carefully reviewed and considered by implementors of the specification. Technical changes are best discussed in individual issues prior to a change in the specification. Please be concise in any suggestions and read existing issues prior to posting.
+- Technical changes to the specification are an important part of the evolution of the standard. Technical changes imply new requirements for tools that create and/or read the format. Therefore a technical change requires the `major` version to be incremented and will be carefully reviewed and considered by implementors of the specification. Technical changes are best discussed in individual [issues](https://github.com/mapbox/tilejson-spec/issues) prior to a change in the specification. Please be concise in any suggestions and read existing issues prior to posting.
 
 ### Syntax Notes
 
