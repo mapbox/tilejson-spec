@@ -66,8 +66,30 @@ A text description of the tileset. The description can contain any legal charact
 
 ## 3.6 `grids`
 ## 3.7 `legend`
+
 ## 3.8 `maxzoom`
+
+OPTIONAL. Default: 30. >= 0, <= 30.
+
+An integer specifying the maximum zoom level. MUST be >= minzoom.
+
+```JSON
+{
+  "maxzoom": "11"
+}
+```
+
 ## 3.9 `minzoom`
+
+OPTIONAL. Default: 0. >= 0, <= 30.
+
+An integer specifying the minimum zoom level.
+
+```JSON
+{
+  "minzoom": "0"
+}
+```
 
 ## 3.10 `name`
 
@@ -82,6 +104,17 @@ A name describing the tileset. The name can contain any legal character. Impleme
 ```
 
 ## 3.11 `scheme`
+
+OPTIONAL. Default: "xyz". 
+
+Either "xyz" or "tms". Influences the y direction of the tile coordinates. The global-mercator (aka Spherical Mercator) profile is assumed.
+
+```JSON
+{
+  "scheme": "xyz"
+}
+```
+
 ## 3.12 `template`
 ## 3.13 `tilejson`
 
