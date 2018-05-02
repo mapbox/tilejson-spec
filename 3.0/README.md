@@ -39,27 +39,75 @@ Implementations MUST treat unknown keys as if they weren't present. However, imp
 
 ## 3.1 `attribution`
 
-REQUIRED|OPTIONAL (description of dependents/dependencies)
+OPTIONAL. Default: null.
 
-**Description:**
+Contains an attribution to be displayed when the map is shown to a user. Implementations MAY decide to treat this as HTML or literal text. For security reasons, make absolutely sure that this field can't be abused as a vector for XSS or beacon tracking.
 
-**Example:**
+```JSON
+{
+  "attribution": "<a href='http://openstreetmap.org'>OSM contributors</a>"
+}
+```
 
 ## 3.2 `bounds`
 ## 3.3 `center`
 ## 3.4 `data`
 ## 3.5 `description`
+
+OPTIONAL. Default: null.
+
+A text description of the tileset. The description can contain any legal character. Implementations SHOULD NOT interpret the description as HTML.
+
+```JSON
+{
+  "description": "We are volcanoes. When we women offer our experience as our truth, as human truth, all the maps change. There are new mountains."
+}
+```
+
 ## 3.6 `grids`
 ## 3.7 `legend`
 ## 3.8 `maxzoom`
 ## 3.9 `minzoom`
+
 ## 3.10 `name`
+
+OPTIONAL. Default: null.
+
+A name describing the tileset. The name can contain any legal character. Implementations SHOULD NOT interpret the name as HTML.
+
+```JSON
+{
+  "name": "Earthsea v2"
+}
+```
+
 ## 3.11 `scheme`
 ## 3.12 `template`
 ## 3.13 `tilejson`
+
+REQUIRED.
+
+A semver.org style version number. Describes the version of the TileJSON spec that is implemented by this JSON object.
+
+```JSON
+{
+  "tilejson": "3.0"
+}
+```
+
 ## 3.14 `tiles`
 ## 3.15 `vector_layers`
 ## 3.16 `version`
+
+OPTIONAL. Default: "1.0.0".
+
+A [semver.org](https://semver.org) style version number representing the vector tiles themselves. When changes across tiles are introduced, such as polygon or linestring geometry updates, the minor version MUST change. This may lead to cut off labels. Therefore, implementors can decide to clean their cache when the minor version changes. Changes to the patch level MUST only have changes to tiles that are contained within one tile. When tiles change significantly, the major version MUST be increased. Implementations MUST NOT use tiles with different major versions.
+
+```JSON
+{
+  "version": "1.0.0"
+}
+```
 
 # 4. Examples
 
