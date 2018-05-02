@@ -35,7 +35,9 @@ TileJSON manifest files use the JSON format as described in [RFC 4627](https://w
 
 # 3. Structure
 
-Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key/values in their API so that API users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they weren't present. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
+Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key/values in their API so that API users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they weren’t present. If the the field is an optional field and the value is invalid, the default value MAY be applied. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
+
+Default`
 
 ## 3.1 `attribution`
 
@@ -83,7 +85,7 @@ An integer specifying the maximum zoom level. MUST be >= minzoom.
 
 OPTIONAL. Default: 0. >= 0, <= 30.
 
-An integer specifying the minimum zoom level.
+An integer specifying the minimum zoom level. MUST be <= maxzoom
 
 ```JSON
 {
