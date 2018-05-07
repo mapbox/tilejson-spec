@@ -138,7 +138,7 @@ Include anything about _types_ of tiles? (png, mvt, webp...?)
 
 ```JSON
 {
-  tiles": [
+  "tiles": [
     "http://localhost:8888/admin/1.0.0/world-light,broadband/{z}/{x}/{y}.png"
   ]
 }
