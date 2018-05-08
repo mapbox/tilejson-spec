@@ -134,8 +134,6 @@ REQUIRED.
 
 An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. The array MUST contain at least one endpoint.
 
-Include anything about _types_ of tiles? (png, mvt, webp...?)
-
 ```JSON
 {
   "tiles": [
