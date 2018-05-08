@@ -149,7 +149,7 @@ Include anything about _types_ of tiles? (png, mvt, webp...?)
 
 OPTIONAL. Default: "1.0.0".
 
-A [semver.org](https://semver.org) style version number representing the vector tiles themselves. When changes across tiles are introduced, such as polygon or linestring geometry updates, the minor version MUST change. This may lead to cut off labels. Therefore, implementors can decide to clean their cache when the minor version changes. Changes to the patch level MUST only have changes to tiles that are contained within one tile. When tiles change significantly, the major version MUST be increased. Implementations MUST NOT use tiles with different major versions.
+A [semver.org](https://semver.org) style version number of the tiles. When changes across tiles are introduced the minor version MUST change. This may lead to cut off labels. Therefore, implementors can decide to clean their cache when the minor version changes. Changes to the patch level MUST only have changes to tiles that are contained within one tile. When tiles change significantly, such as updating a vector tile layer name, the major version MUST be increased. Implementations MUST NOT use tiles with different major versions.
 
 ```JSON
 {
