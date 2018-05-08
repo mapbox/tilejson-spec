@@ -138,7 +138,7 @@ The tile extension is NOT limited to any particular format. Some of the more pop
 ```JSON
 {
   "tiles": [
-    "http://localhost:8888/admin/1.0.0/world-light,broadband/{z}/{x}/{y}.png"
+    "http://localhost:8888/admin/1.0.0/world-light,broadband/{z}/{x}/{y}.mvt"
   ]
 }
 ```
