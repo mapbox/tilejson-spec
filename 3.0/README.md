@@ -35,7 +35,7 @@ TileJSON manifest files use the JSON format as described in [RFC 4627](https://w
 
 # 3. Structure
 
-Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key/values in their API so that API users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they weren't present. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
+Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key/values in their API so that API users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they weren’t present. If the the field is an optional field and the value is invalid, the default value MAY be applied. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
 
 ## 3.1 `attribution`
 
@@ -66,8 +66,30 @@ A text description of the tileset. The description can contain any legal charact
 
 ## 3.6 `grids`
 ## 3.7 `legend`
+
 ## 3.8 `maxzoom`
+
+OPTIONAL. Default: 30. >= 0, <= 30.
+
+An integer specifying the maximum zoom level. MUST be >= minzoom.
+
+```JSON
+{
+  "maxzoom": "11"
+}
+```
+
 ## 3.9 `minzoom`
+
+OPTIONAL. Default: 0. >= 0, <= 30.
+
+An integer specifying the minimum zoom level. MUST be <= maxzoom
+
+```JSON
+{
+  "minzoom": "0"
+}
+```
 
 ## 3.10 `name`
 
@@ -82,6 +104,17 @@ A name describing the tileset. The name can contain any legal character. Impleme
 ```
 
 ## 3.11 `scheme`
+
+OPTIONAL. Default: "xyz". 
+
+Either "xyz" or "tms". Influences the y direction of the tile coordinates. The global-mercator (aka Spherical Mercator) profile is assumed.
+
+```JSON
+{
+  "scheme": "xyz"
+}
+```
+
 ## 3.12 `template`
 ## 3.13 `tilejson`
 
