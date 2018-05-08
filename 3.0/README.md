@@ -116,7 +116,7 @@ A name describing the tileset. The name can contain any legal character. Impleme
 
 ## 3.11 `scheme`
 
-OPTIONAL. Default: "xyz". 
+OPTIONAL. Default: "xyz".
 
 Either "xyz" or "tms". Influences the y direction of the tile coordinates. The global-mercator (aka Spherical Mercator) profile is assumed.
 
@@ -141,7 +141,7 @@ A semver.org style version number. Describes the version of the TileJSON spec th
 
 ## 3.14 `tiles`
 
-REQUIRED. 
+REQUIRED.
 
 An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. The array MUST contain at least one endpoint. The tile extension is NOT limited to any particular format. Some of the more popular are: mvt, vector.pbf, png, webp, and jpg.
 
@@ -154,6 +154,55 @@ An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the 
 ```
 
 ## 3.15 `vector_layers`
+
+REQUIRED if describing vector tiles.
+
+A JSON object whose value is an array of JSON objects. Each of those JSON objects describes one layer of vector tile data, and MUST contain the following key-value pairs:
+
+* `id` (string): The layer ID, which is referred to as the `name` of the layer in the [Mapbox Vector Tile spec](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#41-layers).
+* `fields` (object): A JSON object whose keys and values are the names and descriptions of attributes available in this layer. Each value (description) MUST be a string. The values MAY describe the underlying data type, such as `String`, `Number`, or `Boolean`. Attributes whose type varies between features MAY be listed as `"String"`.
+
+Each layer object MAY also contain the following key-value pair:
+
+* `description` (string): A human-readable description of the layer's contents.
+* `minzoom` (number): The lowest zoom level whose tiles this layer appears in. MUST be greater than or equal to the tileset's `minzoom`.
+* `maxzoom` (number): The highest zoom level whose tiles this layer appears in. MUST be less than or equal to the tileset's `maxzoom`.
+
+These keys are used to describe the situation where different sets of vector layers appear in different zoom levels of the same tileset, for example in a case where a "minor roads" layer is only present at high zoom levels.
+
+Implementations MUST treat unknown key-value pairs as if they weren't present. However, implementations MUST expose unknown key/values in their API so that API users can optionally handle these keys.
+
+```JSON
+{
+  "vector_layers": [
+    {
+      "id": "roads",
+      "description": "Roads and their attributes",
+      "minzoom": 2,
+      "maxzoom": 16,
+      "fields": {
+        "type": "One of: trunk, primary, secondary",
+        "lanes": "Number",
+        "name": "String",
+        "sidewalks": "Boolean"
+      }
+    },
+    {
+      "id": "countries",
+      "description": "Admin 0 (country) boundaries",
+      "minzoom": 0,
+      "maxzoom": 16,
+      "fields": {
+        "iso": "ISO 3166-1 Alpha-2 code",
+        "name": "English name of the country",
+        "name_ar": "Arabic name of the country"
+      }
+    }
+  ]
+}
+```
+
+
 ## 3.16 `version`
 
 OPTIONAL. Default: "1.0.0".
