@@ -155,7 +155,7 @@ An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the 
 
 ## 3.15 `vector_layers`
 
-REQUIRED if describing vector tiles.
+REQUIRED. (if describing vector tiles)
 
 A JSON object whose value is an array of JSON objects. Each of those JSON objects describes one layer of vector tile data, and MUST contain the following key-value pairs:
 
