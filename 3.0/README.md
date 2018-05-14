@@ -76,6 +76,19 @@ A text description of the tileset. The description can contain any legal charact
 ```
 
 ## 3.6 `grids`
+
+OPTIONAL. Default: [].
+
+An array of interactivity endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. If the array doesn't contain any entries, UTF-Grid interactivity is not supported for this tileset. See https://github.com/mapbox/utfgrid-spec/tree/master/1.2 for the interactivity specification.
+
+```JSON
+{
+  "grids": [
+    "http://www.example.com/earthsea/1.0.0/{z}/{x}/{y}.grid.json"
+  ]
+}
+```
+
 ## 3.7 `legend`
 
 ## 3.8 `maxzoom`
@@ -116,7 +129,7 @@ A name describing the tileset. The name can contain any legal character. Impleme
 
 ## 3.11 `scheme`
 
-OPTIONAL. Default: "xyz". 
+OPTIONAL. Default: "xyz".
 
 Either "xyz" or "tms". Influences the y direction of the tile coordinates. The global-mercator (aka Spherical Mercator) profile is assumed.
 
@@ -141,7 +154,7 @@ A semver.org style version number. Describes the version of the TileJSON spec th
 
 ## 3.14 `tiles`
 
-REQUIRED. 
+REQUIRED.
 
 An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. The array MUST contain at least one endpoint. The tile extension is NOT limited to any particular format. Some of the more popular are: mvt, vector.pbf, png, webp, and jpg.
 
