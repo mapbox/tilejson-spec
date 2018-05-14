@@ -78,6 +78,16 @@ A text description of the tileset. The description can contain any legal charact
 ## 3.6 `grids`
 ## 3.7 `legend`
 
+OPTIONAL. Default: null.
+
+Contains a legend to be displayed with the map. Implementations MAY decide to treat this as HTML or literal text. For security reasons, make absolutely sure that this field can't be abused as a vector for XSS or beacon tracking.
+
+```JSON
+{
+  "legend": "Dangerous zones are red, safe zones are green"
+}
+```
+
 ## 3.8 `maxzoom`
 
 OPTIONAL. Default: 30. >= 0, <= 30.
@@ -116,7 +126,7 @@ A name describing the tileset. The name can contain any legal character. Impleme
 
 ## 3.11 `scheme`
 
-OPTIONAL. Default: "xyz". 
+OPTIONAL. Default: "xyz".
 
 Either "xyz" or "tms". Influences the y direction of the tile coordinates. The global-mercator (aka Spherical Mercator) profile is assumed.
 
@@ -141,7 +151,7 @@ A semver.org style version number. Describes the version of the TileJSON spec th
 
 ## 3.14 `tiles`
 
-REQUIRED. 
+REQUIRED.
 
 An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. The array MUST contain at least one endpoint. The tile extension is NOT limited to any particular format. Some of the more popular are: mvt, vector.pbf, png, webp, and jpg.
 
