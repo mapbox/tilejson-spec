@@ -155,22 +155,35 @@ An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the 
 
 ## 3.15 `vector_layers`
 
-REQUIRED. (if describing vector tiles)
+REQUIRED.
 
-A JSON object whose value is an array of JSON objects. Each of those JSON objects describes one layer of vector tile data, and MUST contain the following key-value pairs:
+A JSON object whose value is an array of JSON objects. Each of those JSON objects describes one layer of vector tile data. A `vector_layer` object MUST contain the `id` and `fields` keys, and MAY contain the `description`, `minzoom`, or `maxzoom` keys.
 
-* `id` (string): The layer ID, which is referred to as the `name` of the layer in the [Mapbox Vector Tile spec](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#41-layers).
-* `fields` (object): A JSON object whose keys and values are the names and descriptions of attributes available in this layer. Each value (description) MUST be a string. The values MAY describe the underlying data type, such as `String`, `Number`, or `Boolean`. Attributes whose type varies between features MAY be listed as `"String"`.
+#### 3.15.1 `id`
 
-Each layer object MAY also contain the following key-value pair:
+REQUIRED.
 
-* `description` (string): A human-readable description of the layer's contents.
-* `minzoom` (number): The lowest zoom level whose tiles this layer appears in. MUST be greater than or equal to the tileset's `minzoom`.
-* `maxzoom` (number): The highest zoom level whose tiles this layer appears in. MUST be less than or equal to the tileset's `maxzoom`.
+A string value representing the the layer id. For added context, this is referred to as the `name` of the layer in the [Mapbox Vector Tile spec](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#41-layers).
+
+#### 3.15.2 `fields`
+
+REQUIRED.
+
+A JSON object whose keys and values are the names and descriptions of attributes available in this layer. Each value (description) MUST be a string that describes the underlying data.
+
+#### 3.15.3 `description`
+
+OPTIONAL.
+
+A string representing a human-readable description of the entire layer's contents.
+
+#### 3.15.4 `minzoom` and `maxzoom`
+
+OPTIONAL.
+
+A number representing the lowest/highest zoom level whose tiles this layer appears in. `minzoom` MUST be greater than or equal to the tileset's `minzoom`. `maxzoom` MUST be less than or equal to the tileset's `maxzoom`.
 
 These keys are used to describe the situation where different sets of vector layers appear in different zoom levels of the same tileset, for example in a case where a "minor roads" layer is only present at high zoom levels.
-
-Implementations MUST treat unknown key-value pairs as if they weren't present. However, implementations MUST expose unknown key/values in their API so that API users can optionally handle these keys.
 
 ```JSON
 {
