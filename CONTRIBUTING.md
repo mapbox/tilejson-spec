@@ -20,7 +20,7 @@ Consideration should be taken over the uses of the keywords as described in [RFC
 
 The following is the suggested way to release a new version of the specification.
 
-Upon determination that a significant need for a version change is required a pull request to the specification should be opened. The branch from which the pull request originates should be named clearly to note it is a request for a new version of the specification. For example a branch of `v3.0-development` would specify the grouping of changes for the `v3.0` specification. This pull request should create a new folder for the version of the specification that will be created, in this instance the folder would be named `3.0.0`. Within this folder should be the:
+Upon determination that a significant need for a version change is required a pull request to the specification should be opened. The branch from which the pull request originates should be named clearly to note it is a request for a new version of the specification. For example a branch of `v3.0.0-development` would specify the grouping of changes for the `v3.0.0` specification. This pull request should create a new folder for the version of the specification that will be created, in this instance the folder would be named `3.0.0`. Within this folder should be the:
 - `schema.json` file for the version
 - `README.md` file that is a full update of the specification. Optionally include README translations - `README-{language code}.md`
 - `example/` directory with JSON file examples
@@ -31,7 +31,7 @@ Once all issues with the pull request have been addressed the pull request may b
 Update the `CHANGELOG.md` with the date of release of the official specification in a new commit to the `master` branch. Once this is done, create an official tag of the release on github.
 
 ```
-    git tag -a v2.0 -m "v2.0"
+    git tag -a v2.0.0 -m "v2.0.0"
     git push --tags
 ```
 
