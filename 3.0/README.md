@@ -116,7 +116,7 @@ A name describing the tileset. The name can contain any legal character. Impleme
 
 ## 3.11 `scheme`
 
-OPTIONAL. Default: "xyz". 
+OPTIONAL. Default: "xyz".
 
 Either "xyz" or "tms". Influences the y direction of the tile coordinates. The global-mercator (aka Spherical Mercator) profile is assumed.
 
@@ -127,6 +127,17 @@ Either "xyz" or "tms". Influences the y direction of the tile coordinates. The g
 ```
 
 ## 3.12 `template`
+
+OPTIONAL. Default: null.
+
+Contains a mustache template to be used to format data from grids for interaction. See https://github.com/mapbox/utfgrid-spec/tree/master/1.2 for the interactivity specification.
+
+```JSON
+{
+  "template": "{{#__teaser__}}{{NAME}}{{/__teaser__}}"
+}
+```
+
 ## 3.13 `tilejson`
 
 REQUIRED.
@@ -141,7 +152,7 @@ A semver.org style version number. Describes the version of the TileJSON spec th
 
 ## 3.14 `tiles`
 
-REQUIRED. 
+REQUIRED.
 
 An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. The array MUST contain at least one endpoint. The tile extension is NOT limited to any particular format. Some of the more popular are: mvt, vector.pbf, png, webp, and jpg.
 
