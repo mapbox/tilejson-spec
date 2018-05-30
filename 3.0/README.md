@@ -76,6 +76,19 @@ A text description of the tileset. The description can contain any legal charact
 ```
 
 ## 3.6 `grids`
+
+OPTIONAL. Default: [].
+
+An array of interactivity endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. If the array doesn't contain any entries, UTF-Grid interactivity is not supported for this tileset. See https://github.com/mapbox/utfgrid-spec/tree/master/1.2 for the interactivity specification.
+
+```JSON
+{
+  "grids": [
+    "http://www.example.com/earthsea/1.0.0/{z}/{x}/{y}.grid.json"
+  ]
+}
+```
+
 ## 3.7 `legend`
 
 ## 3.8 `maxzoom`
