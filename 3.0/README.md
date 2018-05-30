@@ -102,6 +102,16 @@ An array of interactivity endpoints. {z}, {x} and {y}, if present, are replaced 
 
 ## 3.7 `legend`
 
+OPTIONAL. Default: null.
+
+Contains a legend to be displayed with the map. Implementations MAY decide to treat this as HTML or literal text. For security reasons, make absolutely sure that this field can't be abused as a vector for XSS or beacon tracking.
+
+```JSON
+{
+  "legend": "Dangerous zones are red, safe zones are green"
+}
+```
+
 ## 3.8 `maxzoom`
 
 OPTIONAL. Default: 30. >= 0, <= 30.
