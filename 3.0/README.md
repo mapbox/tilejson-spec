@@ -35,7 +35,7 @@ TileJSON manifest files use the JSON format as described in [RFC 4627](https://w
 
 # 3. Structure
 
-Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key/values in their API so that API users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they weren’t present. If the the field is an optional field and the value is invalid, the default value MAY be applied. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
+Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key/values so users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they weren’t present. If the the field is an optional field and the value is invalid, the default value MAY be applied. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
 
 ## 3.1 `attribution`
 
@@ -51,7 +51,7 @@ Contains an attribution to be displayed when the map is shown to a user. Impleme
 
 ## 3.2 `bounds`
 
-OPTIONAL. Default: [-180, -90, 180, 90].
+OPTIONAL. Default: [ -180, -85.05112877980659, 180, 85.0511287798066 ] (xyz-compliant tile bounds)
 
 The maximum extent of available map tiles. Bounds MUST define an area covered by all zoom levels. The bounds are represented in WGS:84 latitude and longitude values, in the order left, bottom, right, top. Values may be integers or floating point numbers. The minimum/maximum values for longitude and latitude are -180/180 and -90/90 respectively. Bounds MUST NOT "wrap" around the ante-meridian. If bounds are not present, the default value MAY assume the set of tiles is globally distributed.
 
@@ -78,7 +78,7 @@ The first value is the longitude, the second is latitude (both in WGS:84 values)
 
 OPTIONAL. Default: null.
 
-A text description of the tileset. The description can contain any legal character. Implementations SHOULD NOT interpret the description as HTML.
+A text description of the tileset. The description can contain any valid unicode character as described by the JSON specification [RFC 4627](https://www.ietf.org/rfc/rfc4627.txt).
 
 ```JSON
 {
@@ -176,7 +176,7 @@ Contains a mustache template to be used to format data from grids for interactio
 
 REQUIRED.
 
-A semver.org style version number. Describes the version of the TileJSON spec that is implemented by this JSON object.
+A semver.org style version number as a string. Describes the version of the TileJSON spec that is implemented by this JSON object.
 
 ```JSON
 {
