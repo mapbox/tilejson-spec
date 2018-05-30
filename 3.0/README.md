@@ -65,8 +65,7 @@ The maximum extent of available map tiles. Bounds MUST define an area covered by
 
 OPTIONAL. Default: null.
 
-The first value is the longitude, the second is latitude (both in WGS:84 values), the third value is the zoom level as an integer. Longitude and latitude MUST be within the specified bounds. The zoom level MUST be between minzoom and maxzoom. Implementations MAY use this center value to set the default location. If the value is null, implementations MAY use their own algorithm for
-determining a default location.
+The first value is the longitude, the second is latitude (both in WGS:84 values), the third value is the zoom level as an integer. Longitude and latitude MUST be within the specified bounds. The zoom level MUST be between minzoom and maxzoom. Implementations MAY use this center value to set the default location. If the value is null, implementations MAY use their own algorithm for determining a default location.
 
 ```JSON
 {
@@ -128,7 +127,7 @@ A name describing the tileset. The name can contain any legal character. Impleme
 
 ## 3.11 `scheme`
 
-OPTIONAL. Default: "xyz". 
+OPTIONAL. Default: "xyz".
 
 Either "xyz" or "tms". Influences the y direction of the tile coordinates. The global-mercator (aka Spherical Mercator) profile is assumed.
 
@@ -153,7 +152,7 @@ A semver.org style version number. Describes the version of the TileJSON spec th
 
 ## 3.14 `tiles`
 
-REQUIRED. 
+REQUIRED.
 
 An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. The array MUST contain at least one endpoint. The tile extension is NOT limited to any particular format. Some of the more popular are: mvt, vector.pbf, png, webp, and jpg.
 
