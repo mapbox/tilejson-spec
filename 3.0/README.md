@@ -180,7 +180,7 @@ A semver.org style version number as a string. Describes the version of the Tile
 
 ```JSON
 {
-  "tilejson": "3.0"
+  "tilejson": "3.0.0"
 }
 ```
 
