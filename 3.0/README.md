@@ -62,6 +62,17 @@ The maximum extent of available map tiles. Bounds MUST define an area covered by
 ```
 
 ## 3.3 `center`
+
+OPTIONAL. Default: null.
+
+The first value is the longitude, the second is latitude (both in WGS:84 values), the third value is the zoom level as an integer. Longitude and latitude MUST be within the specified bounds. The zoom level MUST be between minzoom and maxzoom. Implementations MAY use this center value to set the default location. If the value is null, implementations MAY use their own algorithm for determining a default location.
+
+```JSON
+{
+  "center": [ -76.275329586789, 39.153492567373, 8 ]
+}
+```
+
 ## 3.4 `data`
 ## 3.5 `description`
 
