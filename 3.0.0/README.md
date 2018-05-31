@@ -1,6 +1,6 @@
 # TileJSON 3.0.0
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
 **Table of contents**
 
@@ -31,7 +31,7 @@ This specification attempts to create a standard for representing metadata about
 
 # 2. File Format
 
-TileJSON manifest files use the JSON format as described in [RFC 4627](https://www.ietf.org/rfc/rfc4627.txt).
+TileJSON manifest files use the JSON format as described in [RFC 8259](https://tools.ietf.org/html/rfc8259).
 
 # 3. Structure
 
@@ -53,7 +53,7 @@ Contains an attribution to be displayed when the map is shown to a user. Impleme
 
 OPTIONAL. Default: [ -180, -85.05112877980659, 180, 85.0511287798066 ] (xyz-compliant tile bounds)
 
-The maximum extent of available map tiles. Bounds MUST define an area covered by all zoom levels. The bounds are represented in WGS:84 latitude and longitude values, in the order left, bottom, right, top. Values may be integers or floating point numbers. The minimum/maximum values for longitude and latitude are -180/180 and -90/90 respectively. Bounds MUST NOT "wrap" around the ante-meridian. If bounds are not present, the default value MAY assume the set of tiles is globally distributed.
+The maximum extent of available map tiles. Bounds MUST define an area covered by all zoom levels. The bounds are represented in WGS 84 latitude and longitude values, in the order left, bottom, right, top. Values may be integers or floating point numbers. The minimum/maximum values for longitude and latitude are -180/180 and -90/90 respectively. Bounds MUST NOT "wrap" around the ante-meridian. If bounds are not present, the default value MAY assume the set of tiles is globally distributed.
 
 ```JSON
 {
@@ -78,7 +78,7 @@ The first value is the longitude, the second is latitude (both in WGS:84 values)
 
 OPTIONAL. Default: null.
 
-A text description of the tileset. The description can contain any valid unicode character as described by the JSON specification [RFC 4627](https://www.ietf.org/rfc/rfc4627.txt).
+A text description of the tileset. The description can contain any valid unicode character as described by the JSON specification [RFC 8259](https://tools.ietf.org/html/rfc8259).
 
 ```JSON
 {
