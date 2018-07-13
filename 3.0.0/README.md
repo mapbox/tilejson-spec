@@ -12,6 +12,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
    1. [center](#33-center)
    1. [data](#34-data)
    1. [description](#35-description)
+   1. [fillzoom](#36-fillzoom)
    1. [grids](#36-grids)
    1. [legend](#37-legend)
    1. [maxzoom](#38-maxzoom)
@@ -83,6 +84,20 @@ A text description of the tileset. The description can contain any valid unicode
 ```JSON
 {
   "description": "We are volcanoes. When we women offer our experience as our truth, as human truth, all the maps change. There are new mountains."
+}
+```
+
+## 3.6 `fillzoom`
+
+OPTIONAL. Default: null.
+
+An integer specifying the zoom level at which to generate overzoomed tiles from. Implementations may generate overzoomed tiles from parent tiles if the requested zoom level does not exist. In most cases, overzoomed tiles are generated from the maximum zoom level of the tileset. If fillzoom is specified, the overzoomed tile is generated from the fillzoom level.
+
+For example, in a tileset with maxzoom 10 and _no_ fillzoom specified, if a request for a z11 tile comes through, the implementation may use the maximum z10 parent tiles to generate the new, overzoomed z11 tile. If the same tilejson had fillzoom specified at z7, a request for a z11 tile could still try to generate with z10, but MAY backfill using to the z7 parent tile.
+
+```JSON
+{
+  "fillzoom": "8"
 }
 ```
 
