@@ -93,7 +93,7 @@ OPTIONAL. Default: null.
 
 An integer specifying the zoom level at which to generate overzoomed tiles from. Implementations may generate overzoomed tiles from parent tiles if the requested zoom level does not exist. In most cases, overzoomed tiles are generated from the maximum zoom level of the tileset. If fillzoom is specified, the overzoomed tile is generated from the fillzoom level.
 
-For example, in a tileset with maxzoom 10 and _no_ fillzoom specified, if a request for a z11 tile comes through, the implementation may use the maximum z10 parent tiles to generate the new, overzoomed z11 tile. If the same tilejson had fillzoom specified at z7, a request for a z11 tile could still try to generate with z10, but MAY backfill using to the z7 parent tile.
+For example, in a tileset with maxzoom 10 and _no_ fillzoom specified, if a request for a z11 tile comes through, the implementation will use the maximum z10 parent tiles to generate the new, overzoomed z11 tile. If the same tilejson had fillzoom specified at z7, a request for a z11 tile would use the z7 tile instead of z10.
 
 ```JSON
 {
