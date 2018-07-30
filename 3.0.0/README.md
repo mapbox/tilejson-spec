@@ -242,7 +242,7 @@ A string value representing the the layer id. For added context, this is referre
 
 REQUIRED.
 
-A JSON object whose keys and values are the names and descriptions of attributes available in this layer. Each value (description) MUST be a string that describes the underlying data.
+A JSON object whose keys and values are the names and descriptions of attributes available in this layer. Each value (description) MUST be a string that describes the underlying data. If no fields are present the `fields` key MUST be an empty object.
 
 #### 3.15.3 `description`
 
@@ -283,6 +283,11 @@ These keys are used to describe the situation where different sets of vector lay
         "name": "English name of the country",
         "name_ar": "Arabic name of the country"
       }
+    },
+    {
+      "id": "buildings",
+      "description": "A layer with an empty fields object",
+      "fields": {}
     }
   ]
 }
