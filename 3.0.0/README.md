@@ -92,7 +92,7 @@ An array of data files in GeoJSON format. {z}, {x} and {y}, if present, are repl
 
 OPTIONAL. Default: null.
 
-A text description of the tileset. The description can contain any valid unicode character as described by the JSON specification [RFC 8259](https://tools.ietf.org/html/rfc8259).
+A text description of the set of tiles. The description can contain any valid unicode character as described by the JSON specification [RFC 8259](https://tools.ietf.org/html/rfc8259).
 
 ```JSON
 {
@@ -104,9 +104,9 @@ A text description of the tileset. The description can contain any valid unicode
 
 OPTIONAL. Default: null.
 
-An integer specifying the zoom level at which to generate overzoomed tiles from. Implementations may generate overzoomed tiles from parent tiles if the requested zoom level does not exist. In most cases, overzoomed tiles are generated from the maximum zoom level of the tileset. If fillzoom is specified, the overzoomed tile is generated from the fillzoom level.
+An integer specifying the zoom level at which to generate overzoomed tiles from. Implementations may generate overzoomed tiles from parent tiles if the requested zoom level does not exist. In most cases, overzoomed tiles are generated from the maximum zoom level of the set of tiles. If fillzoom is specified, the overzoomed tile is generated from the fillzoom level.
 
-For example, in a tileset with maxzoom 10 and _no_ fillzoom specified, if a request for a z11 tile comes through, the implementation will use the maximum z10 parent tiles to generate the new, overzoomed z11 tile. If the same TileJSON object had fillzoom specified at z7, a request for a z11 tile would use the z7 tile instead of z10.
+For example, in a set of tiles with maxzoom 10 and _no_ fillzoom specified, if a request for a z11 tile comes through, the implementation will use the maximum z10 parent tiles to generate the new, overzoomed z11 tile. If the same TileJSON object had fillzoom specified at z7, a request for a z11 tile would use the z7 tile instead of z10.
 
 ```JSON
 {
@@ -118,7 +118,7 @@ For example, in a tileset with maxzoom 10 and _no_ fillzoom specified, if a requ
 
 OPTIONAL. Default: [].
 
-An array of interactivity endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. If the array doesn't contain any entries, UTF-Grid interactivity is not supported for this tileset. See https://github.com/mapbox/utfgrid-spec/tree/master/1.2 for the interactivity specification.
+An array of interactivity endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. If the array doesn't contain any entries, UTF-Grid interactivity is not supported for this set of tiles. See https://github.com/mapbox/utfgrid-spec/tree/master/1.2 for the interactivity specification.
 
 *Note: UTF-Grid interactivity predates GL-based map rendering and interaction. Map interactivity is now generally defined outside of the TileJSON specification and is dependent on the tile rendering library's features.*
 
@@ -170,7 +170,7 @@ An integer specifying the minimum zoom level. MUST be <= maxzoom
 
 OPTIONAL. Default: null.
 
-A name describing the tileset. The name can contain any legal character. Implementations SHOULD NOT interpret the name as HTML.
+A name describing the set of tiles. The name can contain any legal character. Implementations SHOULD NOT interpret the name as HTML.
 
 ```JSON
 {
@@ -256,9 +256,9 @@ A string representing a human-readable description of the entire layer's content
 
 OPTIONAL.
 
-A number representing the lowest/highest zoom level whose tiles this layer appears in. `minzoom` MUST be greater than or equal to the tileset's `minzoom`. `maxzoom` MUST be less than or equal to the tileset's `maxzoom`.
+A number representing the lowest/highest zoom level whose tiles this layer appears in. `minzoom` MUST be greater than or equal to the set of tiles' `minzoom`. `maxzoom` MUST be less than or equal to the set of tiles' `maxzoom`.
 
-These keys are used to describe the situation where different sets of vector layers appear in different zoom levels of the same tileset, for example in a case where a "minor roads" layer is only present at high zoom levels.
+These keys are used to describe the situation where different sets of vector layers appear in different zoom levels of the same set of tiles, for example in a case where a "minor roads" layer is only present at high zoom levels.
 
 ```JSON
 {
