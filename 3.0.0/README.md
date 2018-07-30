@@ -110,7 +110,7 @@ For example, in a tileset with maxzoom 10 and _no_ fillzoom specified, if a requ
 
 ```JSON
 {
-  "fillzoom": "8"
+  "fillzoom": 8
 }
 ```
 
@@ -150,7 +150,7 @@ An integer specifying the maximum zoom level. MUST be >= minzoom.
 
 ```JSON
 {
-  "maxzoom": "11"
+  "maxzoom": 11
 }
 ```
 
@@ -162,7 +162,7 @@ An integer specifying the minimum zoom level. MUST be <= maxzoom
 
 ```JSON
 {
-  "minzoom": "0"
+  "minzoom": 0
 }
 ```
 
