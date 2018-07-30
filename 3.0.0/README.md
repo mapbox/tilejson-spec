@@ -75,6 +75,19 @@ The first value is the longitude, the second is latitude (both in WGS:84 values)
 ```
 
 ## 3.4 `data`
+
+OPTIONAL. Default: [].
+
+An array of data files in GeoJSON format. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. If the array doesn't contain any entries, then no data is present in the map. *This field is for overlaying GeoJSON data on tiled raster maps and is generally [no longer used](https://github.com/mapbox/tilejson-spec/pull/43) for GL-based maps.*
+
+```JSON
+{
+  "data": [
+    "http://www.example.com/admin/data.geojson"
+  ]
+}
+```
+
 ## 3.5 `description`
 
 OPTIONAL. Default: null.
