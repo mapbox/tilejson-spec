@@ -227,6 +227,73 @@ An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the 
 ```
 
 ## 3.15 `vector_layers`
+
+REQUIRED.
+
+A JSON object whose value is an array of JSON objects. Each of those JSON objects describes one layer of vector tile data. A `vector_layer` object MUST contain the `id` and `fields` keys, and MAY contain the `description`, `minzoom`, or `maxzoom` keys.
+
+#### 3.15.1 `id`
+
+REQUIRED.
+
+A string value representing the the layer id. For added context, this is referred to as the `name` of the layer in the [Mapbox Vector Tile spec](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#41-layers).
+
+#### 3.15.2 `fields`
+
+REQUIRED.
+
+A JSON object whose keys and values are the names and descriptions of attributes available in this layer. Each value (description) MUST be a string that describes the underlying data. If no fields are present the `fields` key MUST be an empty object.
+
+#### 3.15.3 `description`
+
+OPTIONAL.
+
+A string representing a human-readable description of the entire layer's contents.
+
+#### 3.15.4 `minzoom` and `maxzoom`
+
+OPTIONAL.
+
+A number representing the lowest/highest zoom level whose tiles this layer appears in. `minzoom` MUST be greater than or equal to the tileset's `minzoom`. `maxzoom` MUST be less than or equal to the tileset's `maxzoom`.
+
+These keys are used to describe the situation where different sets of vector layers appear in different zoom levels of the same tileset, for example in a case where a "minor roads" layer is only present at high zoom levels.
+
+```JSON
+{
+  "vector_layers": [
+    {
+      "id": "roads",
+      "description": "Roads and their attributes",
+      "minzoom": 2,
+      "maxzoom": 16,
+      "fields": {
+        "type": "One of: trunk, primary, secondary",
+        "lanes": "Number",
+        "name": "String",
+        "sidewalks": "Boolean"
+      }
+    },
+    {
+      "id": "countries",
+      "description": "Admin 0 (country) boundaries",
+      "minzoom": 0,
+      "maxzoom": 16,
+      "fields": {
+        "iso": "ISO 3166-1 Alpha-2 code",
+        "name": "English name of the country",
+        "name_ar": "Arabic name of the country"
+      }
+    },
+    {
+      "id": "buildings",
+      "description": "A layer with an empty fields object",
+      "fields": {}
+    }
+  ]
+}
+```
+
+
 ## 3.16 `version`
 
 OPTIONAL. Default: "1.0.0".
