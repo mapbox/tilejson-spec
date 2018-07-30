@@ -36,13 +36,13 @@ TileJSON manifest files use the JSON format as described in [RFC 8259](https://t
 
 # 3. Structure
 
-Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key/values so users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they weren’t present. If the the field is an optional field and the value is invalid, the default value MAY be applied. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
+Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key value pairs so users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they weren’t present. If the the key is optional and the value is invalid, the default value MAY be applied. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
 
 ## 3.1 `attribution`
 
 OPTIONAL. Default: null.
 
-Contains an attribution to be displayed when the map is shown to a user. Implementations MAY decide to treat this as HTML or literal text. For security reasons, make absolutely sure that this field can't be abused as a vector for XSS or beacon tracking.
+Contains an attribution to be displayed when the map is shown to a user. Implementations MAY decide to treat this as HTML or literal text. For security reasons, make absolutely sure that this content can't be abused as a vector for XSS or beacon tracking.
 
 ```JSON
 {
@@ -244,7 +244,7 @@ A string value representing the the layer id. For added context, this is referre
 
 REQUIRED.
 
-A JSON object whose keys and values are the names and descriptions of attributes available in this layer. Each value (description) MUST be a string that describes the underlying data. If no fields are present the `fields` key MUST be an empty object.
+A JSON object whose keys and values are the names and descriptions of attributes available in this layer. Each value (description) MUST be a string that describes the underlying data. If no fields are present, the `fields` key MUST be an empty object.
 
 #### 3.15.3 `description`
 
