@@ -120,6 +120,8 @@ OPTIONAL. Default: [].
 
 An array of interactivity endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. If the array doesn't contain any entries, UTF-Grid interactivity is not supported for this tileset. See https://github.com/mapbox/utfgrid-spec/tree/master/1.2 for the interactivity specification.
 
+*Note: UTF-Grid interactivity predates GL-based map rendering and interaction. Map interactivity is now generally defined outside of the TileJSON specification and is dependent on the tile rendering library's features.*
+
 ```JSON
 {
   "grids": [
