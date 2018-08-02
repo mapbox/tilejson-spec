@@ -155,6 +155,14 @@ The maximum extent of available map tiles. Bounds MUST define an area covered by
 }
 ```
 
+Bounds where longitude east & west, and latitude east & west are the same are considered valid. This case typically represents a single point geometry in the entire tileset. For example:
+
+```JSON
+{
+  "bounds": [-122.34, 47.65, -122.34, 47.65]
+}
+```
+
 ## 3.6 `center`
 
 OPTIONAL. Default: null.
