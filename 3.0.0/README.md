@@ -320,7 +320,7 @@ A [semver.org](https://semver.org) style version number of the tiles. When chang
 
 # 4. Examples
 
-Examples can be found in the [example directory](/examples).
+Examples can be found in the [examples directory](/example).
 
 # 5. Caching
 
