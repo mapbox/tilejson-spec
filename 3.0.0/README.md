@@ -25,6 +25,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
    1. [template](#316-template)
    1. [version](#317-version)
 1. [Examples](#4-examples)
+1. [Caching](#5-caching)
 
 # 1. Purpose
 
@@ -320,3 +321,7 @@ A [semver.org](https://semver.org) style version number of the tiles. When chang
 # 4. Examples
 
 Examples can be found in the example/ directory.
+
+# 5. Caching
+
+Clients MAY cache files retrieved from a remote server. When implementations decide to perform caching, they MUST honor valid cache control HTTP headers as defined in the HTTP specification for both tile images and the TileJSON manifest file.
