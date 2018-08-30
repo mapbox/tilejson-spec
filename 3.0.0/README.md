@@ -43,7 +43,7 @@ The following describes the structure of a TileJSON object. Implementations MUST
 
 ## 3.1 `tilejson`
 
-REQUIRED.
+REQUIRED. String.
 
 A semver.org style version number as a string. Describes the version of the TileJSON spec that is implemented by this JSON object.
 
@@ -55,7 +55,7 @@ A semver.org style version number as a string. Describes the version of the Tile
 
 ## 3.2 `tiles`
 
-REQUIRED.
+REQUIRED. Array<String>.
 
 An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoint urls MUST be absolute. All endpoints MUST return the same content for the same URL. The array MUST contain at least one endpoint. The tile extension is NOT limited to any particular format. Some of the more popular are: mvt, vector.pbf, png, webp, and jpg.
 
@@ -69,33 +69,33 @@ An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the 
 
 ## 3.3 `vector_layers`
 
-REQUIRED.
+REQUIRED. Array<Object>.
 
-A JSON object whose value is an array of JSON objects. Each of those JSON objects describes one layer of vector tile data. A `vector_layer` object MUST contain the `id` and `fields` keys, and MAY contain the `description`, `minzoom`, or `maxzoom` keys.
+An array of objects. Each object describes one layer of vector tile data. A `vector_layer` object MUST contain the `id` and `fields` keys, and MAY contain the `description`, `minzoom`, or `maxzoom` keys.
 
 #### 3.3.1 `id`
 
-REQUIRED.
+REQUIRED. String.
 
 A string value representing the the layer id. For added context, this is referred to as the `name` of the layer in the [Mapbox Vector Tile spec](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#41-layers).
 
 #### 3.3.2 `fields`
 
-REQUIRED.
+REQUIRED. Object.
 
-A JSON object whose keys and values are the names and descriptions of attributes available in this layer. Each value (description) MUST be a string that describes the underlying data. If no fields are present, the `fields` key MUST be an empty object.
+An object whose keys and values are the names and descriptions of attributes available in this layer. Each value (description) MUST be a string that describes the underlying data. If no fields are present, the `fields` key MUST be an empty object.
 
 #### 3.3.3 `description`
 
-OPTIONAL.
+OPTIONAL. String.
 
 A string representing a human-readable description of the entire layer's contents.
 
 #### 3.3.4 `minzoom` and `maxzoom`
 
-OPTIONAL.
+OPTIONAL. Integer.
 
-A number representing the lowest/highest zoom level whose tiles this layer appears in. `minzoom` MUST be greater than or equal to the set of tiles' `minzoom`. `maxzoom` MUST be less than or equal to the set of tiles' `maxzoom`.
+An integer representing the lowest/highest zoom level whose tiles this layer appears in. `minzoom` MUST be greater than or equal to the set of tiles' `minzoom`. `maxzoom` MUST be less than or equal to the set of tiles' `maxzoom`.
 
 These keys are used to describe the situation where different sets of vector layers appear in different zoom levels of the same set of tiles, for example in a case where a "minor roads" layer is only present at high zoom levels.
 
@@ -136,7 +136,7 @@ These keys are used to describe the situation where different sets of vector lay
 
 ## 3.4 `attribution`
 
-OPTIONAL. Default: null.
+OPTIONAL. String. Default: null.
 
 Contains an attribution to be displayed when the map is shown to a user. Implementations MAY decide to treat this as HTML or literal text. For security reasons, make absolutely sure that this content can't be abused as a vector for XSS or beacon tracking.
 
@@ -148,7 +148,7 @@ Contains an attribution to be displayed when the map is shown to a user. Impleme
 
 ## 3.5 `bounds`
 
-OPTIONAL. Default: [ -180, -85.05112877980659, 180, 85.0511287798066 ] (xyz-compliant tile bounds)
+OPTIONAL. Array<Number>. Default: [ -180, -85.05112877980659, 180, 85.0511287798066 ] (xyz-compliant tile bounds)
 
 The maximum extent of available map tiles. Bounds MUST define an area covered by all zoom levels. The bounds are represented in WGS 84 latitude and longitude values, in the order left, bottom, right, top. Values may be integers or floating point numbers. The minimum/maximum values for longitude and latitude are -180/180 and -90/90 respectively. Bounds MUST NOT "wrap" around the ante-meridian. If bounds are not present, the default value MAY assume the set of tiles is globally distributed.
 
@@ -168,7 +168,7 @@ Bounds where longitude east & west, and latitude east & west are the same are co
 
 ## 3.6 `center`
 
-OPTIONAL. Default: null.
+OPTIONAL. Array<Number>. Default: null.
 
 The first value is the longitude, the second is latitude (both in WGS:84 values), the third value is the zoom level as an integer. Longitude and latitude MUST be within the specified bounds. The zoom level MUST be between minzoom and maxzoom. Implementations MAY use this center value to set the default location. If the value is null, implementations MAY use their own algorithm for determining a default location.
 
@@ -180,7 +180,7 @@ The first value is the longitude, the second is latitude (both in WGS:84 values)
 
 ## 3.7 `data`
 
-OPTIONAL. Default: [].
+OPTIONAL. Array<String>. Default: [].
 
 An array of data files in GeoJSON format. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. If the array doesn't contain any entries, then no data is present in the map. *This field is for overlaying GeoJSON data on tiled raster maps and is generally [no longer used](https://github.com/mapbox/tilejson-spec/pull/43) for GL-based maps.*
 
@@ -194,19 +194,19 @@ An array of data files in GeoJSON format. {z}, {x} and {y}, if present, are repl
 
 ## 3.8 `description`
 
-OPTIONAL. Default: null.
+OPTIONAL. String. Default: null.
 
 A text description of the set of tiles. The description can contain any valid unicode character as described by the JSON specification [RFC 8259](https://tools.ietf.org/html/rfc8259).
 
 ```JSON
 {
-  "description": "We are volcanoes. When we women offer our experience as our truth, as human truth, all the maps change. There are new mountains."
+  "description": "Highways, roads, and vehicular tracks derived from OpenStreetMap."
 }
 ```
 
 ## 3.9 `fillzoom`
 
-OPTIONAL. Default: null.
+OPTIONAL. Integer. Default: null.
 
 An integer specifying the zoom level at which to generate overzoomed tiles from. Implementations may generate overzoomed tiles from parent tiles if the requested zoom level does not exist. In most cases, overzoomed tiles are generated from the maximum zoom level of the set of tiles. If fillzoom is specified, the overzoomed tile is generated from the fillzoom level.
 
@@ -220,7 +220,7 @@ For example, in a set of tiles with maxzoom 10 and _no_ fillzoom specified, if a
 
 ## 3.10 `grids`
 
-OPTIONAL. Default: [].
+OPTIONAL. Array<String>. Default: [].
 
 An array of interactivity endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. If the array doesn't contain any entries, UTF-Grid interactivity is not supported for this set of tiles. See https://github.com/mapbox/utfgrid-spec/tree/master/1.2 for the interactivity specification.
 
@@ -236,7 +236,7 @@ An array of interactivity endpoints. {z}, {x} and {y}, if present, are replaced 
 
 ## 3.11 `legend`
 
-OPTIONAL. Default: null.
+OPTIONAL. String. Default: null.
 
 Contains a legend to be displayed with the map. Implementations MAY decide to treat this as HTML or literal text. For security reasons, make absolutely sure that this field can't be abused as a vector for XSS or beacon tracking.
 
@@ -248,9 +248,9 @@ Contains a legend to be displayed with the map. Implementations MAY decide to tr
 
 ## 3.12 `maxzoom`
 
-OPTIONAL. Default: 30. >= 0, <= 30.
+OPTIONAL. Integer. Default: 30.
 
-An integer specifying the maximum zoom level. MUST be >= minzoom.
+An integer specifying the maximum zoom level. MUST be in range: 0 <= minzoom <= maxzoom <= 30.
 
 ```JSON
 {
@@ -260,9 +260,9 @@ An integer specifying the maximum zoom level. MUST be >= minzoom.
 
 ## 3.13 `minzoom`
 
-OPTIONAL. Default: 0. >= 0, <= 30.
+OPTIONAL. Integer. Default: 0.
 
-An integer specifying the minimum zoom level. MUST be <= maxzoom
+An integer specifying the minimum zoom level. MUST be in range: 0 <= minzoom <= maxzoom <= 30.
 
 ```JSON
 {
@@ -272,7 +272,7 @@ An integer specifying the minimum zoom level. MUST be <= maxzoom
 
 ## 3.14 `name`
 
-OPTIONAL. Default: null.
+OPTIONAL. String. Default: null.
 
 A name describing the set of tiles. The name can contain any legal character. Implementations SHOULD NOT interpret the name as HTML.
 
@@ -284,7 +284,7 @@ A name describing the set of tiles. The name can contain any legal character. Im
 
 ## 3.15 `scheme`
 
-OPTIONAL. Default: "xyz".
+OPTIONAL. String. Default: "xyz".
 
 Either "xyz" or "tms". Influences the y direction of the tile coordinates. The global-mercator (aka Spherical Mercator) profile is assumed.
 
@@ -296,7 +296,7 @@ Either "xyz" or "tms". Influences the y direction of the tile coordinates. The g
 
 ## 3.16 `template`
 
-OPTIONAL. Default: null.
+OPTIONAL. String. Default: null.
 
 Contains a mustache template to be used to format data from grids for interaction. See https://github.com/mapbox/utfgrid-spec/tree/master/1.2 for the interactivity specification.
 
@@ -308,7 +308,7 @@ Contains a mustache template to be used to format data from grids for interactio
 
 ## 3.17 `version`
 
-OPTIONAL. Default: "1.0.0".
+OPTIONAL. String. Default: "1.0.0".
 
 A [semver.org](https://semver.org) style version number of the tiles. When changes across tiles are introduced the minor version MUST change. This may lead to cut off labels. Therefore, implementors can decide to clean their cache when the minor version changes. Changes to the patch level MUST only have changes to tiles that are contained within one tile. When tiles change significantly, such as updating a vector tile layer name, the major version MUST be increased. Implementations MUST NOT use tiles with different major versions.
 
