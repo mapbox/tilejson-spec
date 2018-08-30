@@ -1,0 +1,105 @@
+{
+    "name": "TileJSON",
+    "type": "object",
+    "properties": {
+        "tilejson": {
+            "type": "string",
+            "pattern": "\\d+\\.\\d+\\.\\d+\\w?[\\w\\d]*"
+        },
+        "tiles": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "vector_layers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "fields": {
+                        "type": "object",
+                        "additionalProperties": { "type": "string" }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "maxzoom": {
+                        "type": "integer"
+                    },
+                    "minzoom": {
+                        "type": "integer"
+                    }
+                },
+                "required": [ "id", "fields" ],
+                "additionalProperties": true
+            }
+        },
+        "attribution": {
+            "type": "string"
+        },
+        "bounds": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "center": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "description": {
+            "type": "string"
+        },
+        "fillzoom": {
+            "minimum": 0,
+            "maximum": 30,
+            "type": "integer"
+        },
+        "grids": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "legend": {
+            "type": "string"
+        },
+        "maxzoom": {
+            "minimum": 0,
+            "maximum": 30,
+            "type": "integer"
+        },
+        "minzoom": {
+            "minimum": 0,
+            "maximum": 30,
+            "type": "integer"
+        },
+        "name": {
+            "type": "string"
+        },
+        "scheme": {
+            "type": "string"
+        },
+        "template": {
+            "type": "string"
+        },
+        "version": {
+            "type": "string",
+            "pattern": "\\d+\\.\\d+\\.\\d+\\w?[\\w\\d]*"
+        }
+    },
+    "required": ["tilejson", "tiles", "vector_layers"],
+    "additionalProperties": true
+}
