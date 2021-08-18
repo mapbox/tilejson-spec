@@ -1,3 +1,9 @@
+## 3.0.0 (Aug 18th, 2021)
+
+- BREAKING: document and require `vector_layers` key for all vector tilesets
+- Further clarify existing fields and update format of the specification
+- Include notes and comments about overzooming when discussing maxzoom and fillzoom
+
 ## 2.2.0 (Feb 3rd, 2017)
 
 - Increase suggested possible `maxzoom` value from `22` to `30`
@@ -17,4 +23,4 @@
 
 ## 1.0.0 (July 13th, 2011)
 
-- first 🎉 
+- first 🎉
