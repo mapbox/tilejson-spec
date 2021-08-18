@@ -71,7 +71,9 @@ An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the 
 
 REQUIRED. Array<Object>.
 
-An array of objects. Each object describes one layer of vector tile data. A `vector_layer` object MUST contain the `id` and `fields` keys, and MAY contain the `description`, `minzoom`, or `maxzoom` keys.
+An array of objects. Each object describes one layer of vector tile data. A `vector_layer` object MUST contain the `id` and `fields` keys, and MAY contain the `description`, `minzoom`, or `maxzoom` keys. An implemenntation MAY include arbitrary keys in the object outside of those defined in this specification.
+
+Note: When describinng a set of raster tiles or other tile format that does not have a "layers" concept (i.e. `"format": "jpeg"`), the `vector_layers` key is not required.
 
 #### 3.3.1 `id`
 
@@ -158,7 +160,7 @@ The maximum extent of available map tiles. Bounds MUST define an area covered by
 }
 ```
 
-Bounds where longitude east & west, and latitude east & west are the same are considered valid. This case typically represents a single point geometry in the entire tileset. For example:
+Bounds where longitude values are the same, and latitude values are the same, are considered valid. This case typically represents a single point geometry in the entire tileset. For example:
 
 ```JSON
 {
@@ -208,9 +210,11 @@ A text description of the set of tiles. The description can contain any valid un
 
 OPTIONAL. Integer. Default: null.
 
-An integer specifying the zoom level at which to generate overzoomed tiles from. Implementations may generate overzoomed tiles from parent tiles if the requested zoom level does not exist. In most cases, overzoomed tiles are generated from the maximum zoom level of the set of tiles. If fillzoom is specified, the overzoomed tile is generated from the fillzoom level.
+An integer specifying the zoom level from which to generate overzoomed tiles. Implementations MAY generate overzoomed tiles from parent tiles if the requested zoom level does not exist. In most cases, overzoomed tiles are generated from the maximum zoom level of the set of tiles. If fillzoom is specified, the overzoomed tile MAY be generated from the fillzoom level.
 
-For example, in a set of tiles with maxzoom 10 and _no_ fillzoom specified, if a request for a z11 tile comes through, the implementation will use the maximum z10 parent tiles to generate the new, overzoomed z11 tile. If the same TileJSON object had fillzoom specified at z7, a request for a z11 tile would use the z7 tile instead of z10.
+For example, in a set of tiles with maxzoom 10 and _no_ fillzoom specified, a request for a z11 tile will use the z10 parent tiles to generate the new, overzoomed z11 tile. If the same TileJSON object had fillzoom specified at z7, a request for a z11 tile would use the z7 tile instead of z10.
+
+While TileJSON may specify rules for overzooming tiles, it is ultimately up to the tile serving client or renderer to implement overzooming.
 
 ```JSON
 {
@@ -250,7 +254,7 @@ Contains a legend to be displayed with the map. Implementations MAY decide to tr
 
 OPTIONAL. Integer. Default: 30.
 
-An integer specifying the maximum zoom level. MUST be in range: 0 <= minzoom <= maxzoom <= 30.
+An integer specifying the maximum zoom level. MUST be in range: 0 <= minzoom <= maxzoom <= 30. A client or server MAY request tiles outside of the zoom range, but the availability of these tiles is dependent on how the the tile server or renderer handles the request (such as overzooming tiles).
 
 ```JSON
 {
