@@ -1,8 +1,16 @@
 ## 3.0.0 (Aug 18th, 2021)
 
-- BREAKING: document and require `vector_layers` key for all vector tilesets
+- **BREAKING**: document and require `vector_layers` key for all vector tilesets
 - Further clarify existing fields and update format of the specification
 - Include notes and comments about overzooming when discussing maxzoom and fillzoom
+- Consistify usage of "keys" or "fields" across the spec
+- Consistify usage of "set of tiles"
+- Clearly define the word "implementation"
+- Add note about "interactivity" regarding UTF-Grids and how this field predates GL-based maps
+- Clarify if `bounds` values can be the same to represent a single point tileset
+- Remove wiki and add implementations to README
+
+Thanks reviewers! @pnorman, @stevage, @samanpwbb, @asheemmamoowala
 
 ## 2.2.0 (Feb 3rd, 2017)
 
