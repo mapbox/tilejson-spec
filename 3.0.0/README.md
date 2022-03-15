@@ -37,7 +37,7 @@ TileJSON manifest files use the JSON format as described in [RFC 8259](https://t
 
 # 3. Structure
 
-The following describes the structure of a TileJSON object. Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key value pairs so users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they weren’t present. If the the key is optional and the value is invalid, the default value MAY be applied. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
+The following describes the structure of a TileJSON object. Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key value pairs so users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they weren’t present. If the key is optional and the value is invalid, the default value MAY be applied. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
 
 *The word "implementation" in the following sections refers to services or tools that serve, generate, or validate TileJSON objects.*
 
