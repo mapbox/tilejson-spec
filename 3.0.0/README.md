@@ -73,7 +73,7 @@ REQUIRED. Array<Object>.
 
 An array of objects. Each object describes one layer of vector tile data. A `vector_layer` object MUST contain the `id` and `fields` keys, and MAY contain the `description`, `minzoom`, or `maxzoom` keys. An implemenntation MAY include arbitrary keys in the object outside of those defined in this specification.
 
-Note: When describinng a set of raster tiles or other tile format that does not have a "layers" concept (i.e. `"format": "jpeg"`), the `vector_layers` key is not required.
+Note: When describing a set of raster tiles or other tile format that does not have a "layers" concept (i.e. `"format": "jpeg"`), the `vector_layers` key is not required.
 
 #### 3.3.1 `id`
 
