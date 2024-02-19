@@ -37,7 +37,7 @@ TileJSON manifest files use the JSON format as described in [RFC 8259](https://t
 
 # 3. Structure
 
-The following describes the structure of a TileJSON object. Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key value pairs so users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they weren’t present. If the key is optional and the value is invalid, the default value MAY be applied. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
+The following describes the structure of a TileJSON object. Implementations MUST treat unknown keys as if they weren't present. However, implementations MUST expose unknown key value pairs so users can optionally handle these keys. Implementations MUST treat invalid values for keys as if they were not present. If the key is optional and the value is invalid, the default value MAY be applied. If the key is required, implementations MUST treat the entire TileJSON manifest file as invalid and refuse operation.
 
 *The word "implementation" in the following sections refers to services or tools that serve, generate, or validate TileJSON objects.*
 
@@ -71,15 +71,15 @@ An array of tile endpoints. {z}, {x} and {y}, if present, are replaced with the 
 
 REQUIRED. Array<Object>.
 
-An array of objects. Each object describes one layer of vector tile data. A `vector_layer` object MUST contain the `id` and `fields` keys, and MAY contain the `description`, `minzoom`, or `maxzoom` keys. An implemenntation MAY include arbitrary keys in the object outside of those defined in this specification.
+An array of objects. Each object describes one layer of vector tile data. A `vector_layer` object MUST contain the `id` and `fields` keys, and MAY contain the `description`, `minzoom`, or `maxzoom` keys. An implementation MAY include arbitrary keys in the object outside those defined in this specification.
 
-Note: When describinng a set of raster tiles or other tile format that does not have a "layers" concept (i.e. `"format": "jpeg"`), the `vector_layers` key is not required.
+Note: When describing a set of raster tiles or other tile format that does not have a "layers" concept (i.e. `"format": "jpeg"`), the `vector_layers` key is not required.
 
 #### 3.3.1 `id`
 
 REQUIRED. String.
 
-A string value representing the the layer id. For added context, this is referred to as the `name` of the layer in the [Mapbox Vector Tile spec](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#41-layers).
+A string value representing the layer id. For added context, this is referred to as the `name` of the layer in the [Mapbox Vector Tile spec](https://github.com/mapbox/vector-tile-spec/tree/master/2.1#41-layers).
 
 #### 3.3.2 `fields`
 
@@ -144,7 +144,7 @@ Contains an attribution to be displayed when the map is shown to a user. Impleme
 
 ```JSON
 {
-  "attribution": "<a href='http://openstreetmap.org'>OSM contributors</a>"
+  "attribution": "<a href='https://openstreetmap.org'>OSM contributors</a>"
 }
 ```
 
@@ -189,7 +189,7 @@ An array of data files in GeoJSON format. {z}, {x} and {y}, if present, are repl
 ```JSON
 {
   "data": [
-    "http://www.example.com/admin/data.geojson"
+    "https://www.example.com/admin/data.geojson"
   ]
 }
 ```
@@ -228,12 +228,12 @@ OPTIONAL. Array<String>. Default: [].
 
 An array of interactivity endpoints. {z}, {x} and {y}, if present, are replaced with the corresponding integers. If multiple endpoints are specified, clients may use any combination of endpoints. All endpoints MUST return the same content for the same URL. If the array doesn't contain any entries, UTF-Grid interactivity is not supported for this set of tiles. See https://github.com/mapbox/utfgrid-spec/tree/master/1.2 for the interactivity specification.
 
-*Note: UTF-Grid interactivity predates GL-based map rendering and interaction. Map interactivity is now generally defined outside of the TileJSON specification and is dependent on the tile rendering library's features.*
+*Note: UTF-Grid interactivity predates GL-based map rendering and interaction. Map interactivity is now generally defined outside the TileJSON specification and is dependent on the tile rendering library's features.*
 
 ```JSON
 {
   "grids": [
-    "http://www.example.com/earthsea/1.0.0/{z}/{x}/{y}.grid.json"
+    "https://www.example.com/earthsea/1.0.0/{z}/{x}/{y}.grid.json"
   ]
 }
 ```
@@ -254,7 +254,7 @@ Contains a legend to be displayed with the map. Implementations MAY decide to tr
 
 OPTIONAL. Integer. Default: 30.
 
-An integer specifying the maximum zoom level. MUST be in range: 0 <= minzoom <= maxzoom <= 30. A client or server MAY request tiles outside of the zoom range, but the availability of these tiles is dependent on how the the tile server or renderer handles the request (such as overzooming tiles).
+An integer specifying the maximum zoom level. MUST be in range: 0 <= minzoom <= maxzoom <= 30. A client or server MAY request tiles outside the zoom range, but the availability of these tiles is dependent on how the tile server or renderer handles the request (such as overzooming tiles).
 
 ```JSON
 {
