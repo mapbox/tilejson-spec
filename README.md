@@ -15,7 +15,6 @@ there are no royalties, restrictions, or requirements.
 
 * [Carto](https://carto.com/)
 * [Mapbox](https://www.mapbox.com/)
-* [TileStache](http://tilestache.org/)
 * [Martin](https://github.com/maplibre/martin)
 
 #### Writing
