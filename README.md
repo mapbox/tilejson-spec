@@ -16,6 +16,7 @@ there are no royalties, restrictions, or requirements.
 * [Carto](https://carto.com/)
 * [Mapbox](https://www.mapbox.com/)
 * [Martin](https://github.com/maplibre/martin)
+* [MVT Server](https://github.com/mvt-proj/mvt-rs)
 
 #### Writing
 
